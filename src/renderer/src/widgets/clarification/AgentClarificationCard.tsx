@@ -41,6 +41,7 @@ export default function AgentClarificationCard({ part }: { part: Part }): React.
 						choices={part.choices}
 						disabled={submitting}
 						maxChoices={5}
+						showDescription={false}
 						onChoose={(answer): void => {
 							void submit(answer);
 						}}

@@ -9,12 +9,14 @@ export default function ClarificationChoices({
 	maxChoices,
 	onChoose,
 	recommendedSuffix,
+	showDescription = true,
 }: {
 	choices: readonly ClarificationChoice[];
 	disabled: boolean;
 	maxChoices: number;
 	onChoose: (answer: string) => void;
 	recommendedSuffix?: string;
+	showDescription?: boolean;
 }): React.JSX.Element | null {
 	if (choices.length === 0) return null;
 	return (
@@ -34,7 +36,7 @@ export default function ClarificationChoices({
 								{choice.label}
 								{index === 0 && recommendedSuffix ? ` ${recommendedSuffix}` : ""}
 							</span>
-							{choice.description ? (
+							{showDescription && choice.description ? (
 								<span className={styles.replyDescription}>{choice.description}</span>
 							) : null}
 						</span>
